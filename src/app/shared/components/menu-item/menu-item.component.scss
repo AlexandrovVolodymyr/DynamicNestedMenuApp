@@ -10,7 +10,8 @@
     padding-right: 0;
 
     .nav-link {
-      padding: var(--bs-dropdown-item-padding-y) var(--bs-dropdown-item-padding-x);
+      padding: var(--bs-dropdown-item-padding-y)
+        var(--bs-dropdown-item-padding-x);
 
       &--empty {
         &::after {
@@ -32,6 +33,6 @@
 
   .dropdown-submenu {
     top: -$menuItemOffset;
-    left: 100%
+    left: 100%;
   }
 }

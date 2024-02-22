@@ -33,18 +33,24 @@
 <ng-template #content>
   <div class="modal-header">
     <h4 class="modal-title" id="modal-basic-title">Add Menu Item</h4>
-    <button type="button" class="btn-close" aria-label="Close" (click)="close()"></button>
+    <button
+      type="button"
+      class="btn-close"
+      aria-label="Close"
+      (click)="close()"
+    ></button>
   </div>
   <div class="modal-body">
     <form [formGroup]="form">
       <div class="form-group">
         <label class="form-label">Title</label>
-        <input type="text"
-               class="form-control"
-               [class.invalid-control]="controlInvalid"
-               placeholder="Home"
-               formControlName="title"
-               (input)="onTitleChange($event)"
+        <input
+          type="text"
+          class="form-control"
+          [class.invalid-control]="controlInvalid"
+          placeholder="Home"
+          formControlName="title"
+          (input)="onTitleChange($event)"
         />
 
         <div class="invalid-feedback">
@@ -58,71 +64,100 @@
       </div>
       <div class="form-group">
         <label class="form-label">Route</label>
-        <input type="text"
-               class="form-control"
-               placeholder="home"
-               formControlName="route"
+        <input
+          type="text"
+          class="form-control"
+          placeholder="home"
+          formControlName="route"
         />
       </div>
       <div class="form-group">
         <label class="form-label">Icon</label>
         <div class="input-group">
           <span class="input-group-text">bi-</span>
-          <input type="text" class="form-control" formControlName="icon">
+          <input type="text" class="form-control" formControlName="icon" />
         </div>
-        <span
-          class="text-secondary fst-italic hint">Set the Bootstrap icon name: https://icons.getbootstrap.com/</span>
+        <span class="text-secondary fst-italic hint"
+          >Set the Bootstrap icon name: https://icons.getbootstrap.com/</span
+        >
       </div>
       <div [formArrayName]="'children'">
         @for (group of childrenGroup; track group; let index = $index) {
-          <hr>
+          <hr />
           <div class="position-relative mt-4" [formGroupName]="index">
-            <button type="button" class="btn btn-sm btn-outline-danger btn-delete" (click)="remove(index)">Delete
+            <button
+              type="button"
+              class="btn btn-sm btn-outline-danger btn-delete"
+              (click)="remove(index)"
+            >
+              Delete
             </button>
             <div class="form-group">
               <label class="form-label">Title</label>
-              <input type="text"
-                     class="form-control"
-                     [class.invalid-control]="group.get('title')?.touched && group.get('title')?.invalid"
-                     placeholder="Home"
-                     formControlName="title"
-                     (input)="onTitleChange($event, group)"
+              <input
+                type="text"
+                class="form-control"
+                [class.invalid-control]="
+                  group.get('title')?.touched && group.get('title')?.invalid
+                "
+                placeholder="Home"
+                formControlName="title"
+                (input)="onTitleChange($event, group)"
               />
               <div class="invalid-feedback">
-                @if (group.get('title')?.touched && group.get('title')?.getError('required')) {
+                @if (
+                  group.get("title")?.touched &&
+                  group.get("title")?.getError("required")
+                ) {
                   <span>This field is required</span>
                 }
-                @if (group.get('title')?.touched && group.get('title')?.getError('maxlength')) {
+                @if (
+                  group.get("title")?.touched &&
+                  group.get("title")?.getError("maxlength")
+                ) {
                   <span>Max length is 20</span>
                 }
               </div>
             </div>
             <div class="form-group">
               <label class="form-label">Route</label>
-              <input type="text"
-                     class="form-control"
-                     placeholder="home"
-                     formControlName="route"
+              <input
+                type="text"
+                class="form-control"
+                placeholder="home"
+                formControlName="route"
               />
             </div>
             <div class="form-group">
               <label class="form-label">Icon</label>
               <div class="input-group">
                 <span class="input-group-text">bi-</span>
-                <input type="text" class="form-control" formControlName="icon">
+                <input
+                  type="text"
+                  class="form-control"
+                  formControlName="icon"
+                />
               </div>
-              <span
-                class="text-secondary fst-italic hint">Set the Bootstrap icon name: https://icons.getbootstrap.com/</span>
+              <span class="text-secondary fst-italic hint"
+                >Set the Bootstrap icon name:
+                https://icons.getbootstrap.com/</span
+              >
             </div>
           </div>
         }
-
       </div>
     </form>
-    <button type="button" class="btn btn-outline-primary mb-2" (click)="addChildren()">Add Sub Menu Items</button>
+    <button
+      type="button"
+      class="btn btn-outline-primary mb-2"
+      (click)="addChildren()"
+    >
+      Add Sub Menu Items
+    </button>
   </div>
   <div class="modal-footer">
-    <button type="button" class="btn btn-outline-dark" (click)="addItem()">Save</button>
+    <button type="button" class="btn btn-outline-dark" (click)="addItem()">
+      Save
+    </button>
   </div>
 </ng-template>
-

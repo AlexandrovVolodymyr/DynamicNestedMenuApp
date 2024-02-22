@@ -121,8 +121,6 @@ export class MenuComponent implements OnInit {
 
   private initForm(): void {
     this.form = this.getMenuItemsGroup();
-
-    this.form.valueChanges.subscribe(console.log);
   }
 
   private getMenuItemsGroup(): UntypedFormGroup {

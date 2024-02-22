@@ -1,1 +1,18 @@
-/* You can add global styles to this file, and also import other style files */
+@import 'bootstrap/scss/bootstrap';
+@import 'assets/styles/variables';
+@import 'assets/styles/form';
+
+*::before,
+*::after,
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+
+  --bs-dropdown-link-active-bg: transparent;
+}
+
+html,
+body {
+  height: 100%;
+}

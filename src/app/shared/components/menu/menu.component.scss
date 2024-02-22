@@ -1,0 +1,33 @@
+.main-menu {
+  @media screen and (max-width: 992px) {
+    margin-top: 15px;
+  }
+
+  app-menu-item {
+    margin-right: 30px;
+  }
+}
+
+form {
+  .hint {
+    font-size: 12px;
+  }
+
+  .form-group {
+    margin-bottom: 10px;
+  }
+
+  .btn-delete {
+    position: absolute;
+    right: 0;
+    top: -12px;
+  }
+}
+
+.dropdown-item {
+  &--add {
+    @media screen and (max-width: 992px) {
+      margin-top: 15px;
+    }
+  }
+}
